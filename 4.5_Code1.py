@@ -31,11 +31,13 @@ testStack.push("d")
 testStack.push("e")
 
 print(testStack.size())
-print(".peek(): ", testStack.peek())
-print(".isEmpty(): ", testStack.isEmpty())
+print(testStack.items)
 
-print("Before .pop(): ", testStack.items)
+print(".peek():", testStack.peek())
+print(".isEmpty():", testStack.isEmpty())
+
+print("Before .pop():", testStack.items)
 print(testStack.pop())
-print("After .pop(): ", testStack.items)
+print("After .pop():", testStack.items)
 testStack.pop()
-print("And again! ", testStack.items)
+print("And again!", testStack.items)

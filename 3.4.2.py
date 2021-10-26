@@ -12,11 +12,14 @@ def anagramSolutionTwo(s1,s2):
     l1.sort()
     l2.sort()
 
+    print(l1)
+    print(l2)
+
     for i in range (len(l1)):
         if(l1[i] != l2[i]):
             anagram = False
             break
-
+        
     return anagram
 
 

@@ -17,15 +17,15 @@ def anagramSolutionOne(s1, s2):
 
     noneCount = l2.count(None)
 
-    if(noneCount < len(l2)):
+    if(noneCount != len(l2)):
         print("NANI?")
         stillOK = False
 
     print("Is this an anagram?", stillOK)
-    print(l2," YEEET")
+    print(l2)
 
 string1 = "hello"
-string2 = "olleh"
+string2 = "ollah"
 anagramSolutionOne(string1, string2)
 
 
