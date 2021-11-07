@@ -18,12 +18,10 @@
 
 from Code_4_5 import Stack # As previously defined
 def infix_to_postfix(infix_expr):
-    prec = {}
-    prec["*"] = 3
-    prec["/"] = 3
-    prec["+"] = 2
-    prec["-"] = 2
-    prec["("] = 1
+    prec = {
+        "*": 3, "/": 3, "+": 2, "-": 2, "(": 1
+        }
+
     op_stack = Stack()
     output = []
     character_list = infix_expr.split()
@@ -42,14 +40,13 @@ def infix_to_postfix(infix_expr):
                 top_token = op_stack.pop()
         
         else:
-            while (not op_stack.is_empty()) and \
-            (prec[op_stack.peek()] >= prec[character]):
+            while (not op_stack.isEmpty()) and (prec[op_stack.peek()] >= prec[character]):
                 output.append(op_stack.pop())
-            
+
             op_stack.push(character)
 
-    while not op_stack.is_empty():
-        output.append(op_stack.pop())
+    # while not op_stack.isEmpty():
+    #     output.append(op_stack.pop())
     return " ".join(output)
 
 print(infix_to_postfix("A * B + C * D"))
