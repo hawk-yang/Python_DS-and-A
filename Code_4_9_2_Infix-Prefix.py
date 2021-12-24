@@ -16,41 +16,24 @@
 #                 output.append(operators.pop())
 
 
-from Code_4_5 import Stack # As previously defined
-def infix_to_postfix(infix_expr):
-    prec = {
-        "*": 3, "/": 3, "+": 2, "-": 2, "(": 1
-        }
+from Code_4_5 import Stack
 
-    op_stack = Stack()
-    output = []
-    character_list = infix_expr.split()
-
-    for character in character_list:
-        if character in "ABCDEFGHIJKLMNOPQRSTUVWXYZ" or character in "0123456789":
-            output.append(character)
-        
-        elif character == '(':
-            op_stack.push(character)
-            
-        elif character == ')':
-            top_token = op_stack.pop()
-            while top_token != '(':
-                output.append(top_token)
-                top_token = op_stack.pop()
-        
-        else:
-            while (not op_stack.isEmpty()) and (prec[op_stack.peek()] >= prec[character]):
-                output.append(op_stack.pop())
-
-            op_stack.push(character)
-
-    # while not op_stack.isEmpty():
-    #     output.append(op_stack.pop())
-    return " ".join(output)
-
-print(infix_to_postfix("A * B + C * D"))
-print(infix_to_postfix("( A + B ) * C - ( D - E ) * ( F + G )"))
+opstack = Stack()
+output = []
+inputString = "(((A+B)*C)+D)"
 
 
 
+for i in range(len(inputString)):
+    if(inputString[i] == "("):
+        opstack.push(inputString[i])
+    elif(inputString[i] in "ABCDEFGHIJKLMNOPQRSTUVWXYZ" or inputString[i] in "1234567890"):
+        output.append(inputString[i])
+
+    elif(inputString[i] == ")"):
+        while(opstack.peek() != "("):
+            output.append(opstack.pop())
+        if(opstack.peek() == "("):
+            opstack.pop()
+
+#Print output 
