@@ -2,6 +2,7 @@ from pythonds.basic import Stack
 
 def divideBy2(decNumber):
     remstack = Stack()
+    print(decNumber)
 
     while decNumber > 0:
         rem = decNumber % 2

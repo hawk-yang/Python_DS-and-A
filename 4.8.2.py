@@ -1,4 +1,4 @@
-from pythonds.basic import Stack
+from Stack import *
 
 resultStack = Stack()
 resultString = ""
@@ -9,6 +9,7 @@ def decToBin(dec, base):
         resultStack.push(dec % base)
         dec //= base
 
+print("decToBin(26, 26)")
 decToBin(26, 26)
 
 print(resultStack.items)
